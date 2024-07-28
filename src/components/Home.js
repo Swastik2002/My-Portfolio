@@ -15,7 +15,7 @@ export default function Home(props) {
                         <p><b>Front End Developer</b></p>
                     </div>
                     <div className='container homeContactButton'>
-                        <a href="/contact"><button type="button" className={`btn btn-success`}>Contact</button></a>
+                        <a href="#contact"><button type="button" className={`btn btn-success`}>Contact</button></a>
                     </div>
                     <div className='container'>        
                         <a href="https://www.linkedin.com/in/swastik-garg-111099249/" target="_blank" rel="noreferrer"><img src={'./assets/images/linkedin.svg'} className="homeContactIcon" alt="linkedin"/></a>
