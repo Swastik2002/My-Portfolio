@@ -1,0 +1,25 @@
+#home {
+  margin-bottom: 650px;
+}
+
+.homeImg{
+    float: left;
+    margin-left: 60%;
+  }
+
+.homeContact {
+  float: left;
+  position: absolute;
+  margin-top: 10%;
+  margin-left: 2%;
+}
+
+.homeContactButton {
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+
+.homeContactIcon {
+  height: 4%;
+  width: 4%;
+}
