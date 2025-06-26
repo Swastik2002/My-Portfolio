@@ -6,21 +6,38 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProjectsDropdownOpen, setIsProjectsDropdownOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Track active section
+      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'contact'];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '#hero', id: 'hero' },
+    { name: 'About', href: '#about', id: 'about' },
+    { name: 'Skills', href: '#skills', id: 'skills' },
+    { name: 'Experience', href: '#experience', id: 'experience' },
+    { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
   const scrollToSection = (href: string) => {
@@ -52,12 +69,16 @@ const Navigation = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+            <div className="ml-10 flex items-baseline space-x-4 relative">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-gray-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    activeSection === item.id
+                      ? 'text-cyan-400'
+                      : 'text-gray-300 hover:text-cyan-400'
+                  }`}
                 >
                   {item.name}
                 </button>
@@ -67,7 +88,11 @@ const Navigation = () => {
               <div className="relative">
                 <button
                   onClick={() => setIsProjectsDropdownOpen(!isProjectsDropdownOpen)}
-                  className="text-gray-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1"
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 ${
+                    activeSection === 'projects'
+                      ? 'text-cyan-400'
+                      : 'text-gray-300 hover:text-cyan-400'
+                  }`}
                 >
                   Projects
                   <ChevronDown size={16} className={`transition-transform duration-200 ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} />
@@ -90,6 +115,14 @@ const Navigation = () => {
                   </div>
                 )}
               </div>
+
+              {/* Active Section Indicator Line */}
+              <div className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 ease-in-out"
+                style={{
+                  width: activeSection ? '40px' : '0px',
+                  transform: activeSection ? `translateX(${getActiveIndicatorPosition(activeSection, navItems)}px)` : 'translateX(0px)'
+                }}
+              />
             </div>
           </div>
 
@@ -112,14 +145,22 @@ const Navigation = () => {
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-gray-300 hover:text-cyan-400 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200"
+                  className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200 ${
+                    activeSection === item.id
+                      ? 'text-cyan-400'
+                      : 'text-gray-300 hover:text-cyan-400'
+                  }`}
                 >
                   {item.name}
                 </button>
               ))}
               <button
                 onClick={() => handleProjectsClick('main')}
-                className="text-gray-300 hover:text-cyan-400 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200"
+                className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200 ${
+                  activeSection === 'projects'
+                    ? 'text-cyan-400'
+                    : 'text-gray-300 hover:text-cyan-400'
+                }`}
               >
                 Main Projects
               </button>
@@ -135,6 +176,15 @@ const Navigation = () => {
       </div>
     </nav>
   );
+};
+
+// Helper function to calculate the position of the active indicator
+const getActiveIndicatorPosition = (activeSection: string, navItems: any[]) => {
+  const sectionIndex = navItems.findIndex(item => item.id === activeSection);
+  if (sectionIndex === -1) return 0;
+  
+  // Approximate position calculation (adjust based on actual spacing)
+  return sectionIndex * 80 + 12; // 80px per item + 12px offset
 };
 
 export default Navigation;

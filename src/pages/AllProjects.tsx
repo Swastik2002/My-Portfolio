@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Github, ArrowRight, ArrowLeft } from 'lucide-react';
 import Navigation from '../components/Navigation';
@@ -126,16 +125,7 @@ const AllProjects = () => {
             {allProjects.map((project, index) => (
               <div
                 key={project.title}
-                className={`bg-gradient-to-br ${project.gradient} backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-opacity-100 hover:border-cyan-500/50 transition-all duration-500 transform hover:scale-[1.02] hover:rotate-1 group`}
-                style={{
-                  transform: 'perspective(1000px)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'perspective(1000px) rotateY(5deg) rotateX(5deg) scale(1.02)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
-                }}
+                className={`bg-gradient-to-br ${project.gradient} backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-opacity-100 hover:border-cyan-500/50 transition-all duration-500 transform hover:scale-[1.02] group`}
               >
                 {/* Project Image */}
                 <div className="relative overflow-hidden">

@@ -7,6 +7,7 @@ import Projects from '../components/Projects';
 import Experience from '../components/Experience';
 import Contact from '../components/Contact';
 import Navigation from '../components/Navigation';
+import ParticleBackground from '../components/ParticleBackground';
 
 const Index = () => {
   useEffect(() => {
@@ -15,14 +16,17 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
-      <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
+    <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
+      <ParticleBackground />
+      <div className="relative z-10">
+        <Navigation />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
+      </div>
     </div>
   );
 };
