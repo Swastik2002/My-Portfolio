@@ -1,41 +1,42 @@
-
-import { Mail, Github, Linkedin, ArrowDown } from 'lucide-react';
+import { Mail, Github, Linkedin, Youtube } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
   const { toast } = useToast();
 
-  const handleResumeDownload = () => {
-    toast({
-      title: "Resume Download",
-      description: "Resume download will be available soon!",
-    });
-  };
-
   const socialLinks = [
     {
       name: "Email",
       icon: Mail,
-      href: "mailto:swastikgarg04@gmail.com",
+      href: "https://mail.google.com/mail/?view=cm&fs=1&to=swastikmanoj28@gmail.com",
+      target: "_blank",
       color: "from-cyan-500 to-blue-500",
       hoverColor: "hover:from-cyan-600 hover:to-blue-700",
-      description: "Drop me a line"
+      description: "swastikmanoj28@gmail.com"
     },
     {
       name: "GitHub",
       icon: Github,
-      href: "https://github.com/swastikgarg04",
+      href: "https://github.com/Swastik2002",
       color: "from-gray-600 to-gray-800",
       hoverColor: "hover:from-gray-700 hover:to-gray-900",
-      description: "Check out my code"
+      description: "github.com/Swastik2002"
     },
     {
       name: "LinkedIn",
       icon: Linkedin,
-      href: "https://linkedin.com/in/swastikgarg04",
+      href: "https://www.linkedin.com/in/swastik-garg-111099249/",
       color: "from-blue-600 to-blue-800",
       hoverColor: "hover:from-blue-700 hover:to-blue-900",
       description: "Let's connect professionally"
+    },
+    {
+      name: "YouTube",
+      icon: Youtube,
+      href: "https://www.youtube.com/@SwastikGarg",
+      color: "from-red-600 to-red-800",
+      hoverColor: "hover:from-red-700 hover:to-red-900",
+      description: "Check out Music Channel"
     }
   ];
 
@@ -50,14 +51,14 @@ const Contact = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
           <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-            I'm always interested in hearing about new opportunities and interesting projects. 
+            I'm always interested in hearing about new opportunities and interesting projects. <br />
             Let's connect and discuss how we can work together!
           </p>
         </div>
 
         <div className="text-center mb-12">
           <p className="text-gray-300 text-lg mb-8">
-            Whether you have a project in mind, want to collaborate, or just want to say hello, 
+            Whether you have a project in mind, want to collaborate, or just want to say hello, <br />
             feel free to reach out through any of these platforms:
           </p>
         </div>
@@ -96,21 +97,11 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Resume Download */}
-        <div className="text-center">
-          <button
-            onClick={handleResumeDownload}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-white font-semibold hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
-          >
-            <ArrowDown size={20} />
-            Download Resume
-          </button>
-        </div>
-
         {/* Footer */}
         <div className="text-center mt-16 pt-8 border-t border-gray-700/50">
           <p className="text-gray-400">
-            Made with ❤️ by Swastik Garg • © 2024 All rights reserved
+            Designed & Built by Swastik Garg
+             {/* • © 2025 All rights reserved */}
           </p>
         </div>
       </div>

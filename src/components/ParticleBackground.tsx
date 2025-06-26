@@ -1,8 +1,17 @@
-
 import { useEffect, useRef } from 'react';
 
 const ParticleBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const particlesRef = useRef<
+    Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      opacity: number;
+    }>
+  >([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -12,55 +21,64 @@ const ParticleBackground = () => {
     if (!ctx) return;
 
     const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = document.documentElement.scrollHeight;
+      const height = document.documentElement.scrollHeight;
+      const width = window.innerWidth;
+
+      canvas.width = width;
+      canvas.height = height;
+
+      canvas.style.height = `${height}px`;
+      canvas.style.width = `${width}px`;
     };
 
-    resizeCanvas();
+    // Delay initial resize to let DOM render
+    setTimeout(() => {
+      resizeCanvas();
+      initializeParticles();
+    }, 100);
 
-    const particles: Array<{
-      x: number;
-      y: number;
-      vx: number;
-      vy: number;
-      size: number;
-      opacity: number;
-    }> = [];
+    const initializeParticles = () => {
+      const width = canvas.width;
+      const height = canvas.height;
 
-    // Create particles
-    for (let i = 0; i < 150; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.4 + 0.2,
-      });
-    }
+      particlesRef.current = [];
+
+      for (let i = 0; i < 400; i++) {
+        particlesRef.current.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          size: Math.random() * 2.5 + 1.5,
+          opacity: Math.random() * 0.5 + 0.3,
+        });
+      }
+    };
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      const particles = particlesRef.current;
+
       particles.forEach((particle, index) => {
-        // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
 
-        // Wrap around edges
         if (particle.x < 0) particle.x = canvas.width;
         if (particle.x > canvas.width) particle.x = 0;
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
 
-        // Draw particle
+        ctx.save();
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(34, 211, 238, ${particle.opacity})`;
+        ctx.shadowColor = `rgba(34, 211, 238, ${particle.opacity})`;
+        ctx.shadowBlur = 50; // More blur = more glow
         ctx.fill();
+        ctx.restore();
 
-        // Draw connections
-        particles.slice(index + 1).forEach(otherParticle => {
+        particles.slice(index + 1).forEach((otherParticle) => {
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
@@ -69,8 +87,8 @@ const ParticleBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(34, 211, 238, ${0.08 * (1 - distance / 120)})`;
-            ctx.lineWidth = 0.8;
+            ctx.strokeStyle = `rgba(34, 211, 238, ${0.5 * (1 - distance / 120)})`; // increased visibility
+            ctx.lineWidth = 1.5; // increased line width
             ctx.stroke();
           }
         });
@@ -83,26 +101,23 @@ const ParticleBackground = () => {
 
     const handleResize = () => {
       resizeCanvas();
-    };
-
-    const handleScroll = () => {
-      resizeCanvas();
+      initializeParticles(); // Recalculate particles for new dimensions
     };
 
     window.addEventListener('resize', handleResize);
-    window.addEventListener('scroll', handleScroll);
-    
+    window.addEventListener('scroll', resizeCanvas);
+
     return () => {
       window.removeEventListener('resize', handleResize);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', resizeCanvas);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 w-full h-full pointer-events-none z-0"
-      style={{ height: '100vh', minHeight: '100vh' }}
+      className="fixed inset-0 w-full pointer-events-none z-0"
+      style={{ height: `${document.documentElement.scrollHeight}px` }}
     />
   );
 };

@@ -36,6 +36,18 @@ const About = () => {
               open-source projects, and sharing knowledge with the developer community. I'm always excited 
               to take on new challenges and collaborate on innovative projects.
             </p>
+
+            {/* View Resume Button */}
+            <div className="pt-2">
+              <a
+                href="https://drive.google.com/file/d/1Db5rQn8SIH5-52_BKx_TlkywGQMl76xa/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl text-white font-semibold hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
+              >
+                View Resume
+              </a>
+            </div>
           </div>
           
           <div className="relative">

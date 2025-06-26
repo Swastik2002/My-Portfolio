@@ -4,22 +4,22 @@ import { Github, ArrowRight } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
-      title: "BlogSafe",
-      description: "A full-stack blogging platform with real-time chat, file uploads, comment moderation, and user/admin roles.",
+      title: "TrustMed",
+      description: "A health-tech platform for medicine trust verification with SQLite backend, deployed via Vercel and Render.",
       image: "/api/placeholder/600/400",
-      techStack: ["ReactJS", "Node.js", "Express.js", "Socket.IO", "MongoDB"],
-      features: ["Real-time Chat", "File Uploads", "User Authentication", "Admin Panel"],
+      techStack: ["ReactJS", "Node.js", "ExpressJS", "SQLite", "Vercel", "Render"],
+      features: ["Medicine Verification", "Trust Score", "Database Integration", "Cloud Deployment"],
       github: "https://github.com/swastikgarg04",
       demo: "#",
       gradient: "from-cyan-500/20 to-blue-500/20",
       borderGradient: "from-cyan-500 to-blue-500"
     },
     {
-      title: "TrustMed",
-      description: "A health-tech platform for medicine trust verification with SQLite backend, deployed via Vercel and Railway.",
+      title: "BlogSafe",
+      description: "A full-stack blogging platform with real-time chat, file uploads, comment moderation, and user/admin roles.",
       image: "/api/placeholder/600/400",
-      techStack: ["ReactJS", "SQLite", "Node.js", "Vercel", "Railway"],
-      features: ["Medicine Verification", "Trust Score", "Database Integration", "Cloud Deployment"],
+      techStack: ["ReactJS", "Node.js", "Express.js", "MongoDB"],
+      features: ["Real-time Chat", "File Uploads", "User Authentication", "Admin Panel"],
       github: "https://github.com/swastikgarg04",
       demo: "#",
       gradient: "from-green-500/20 to-emerald-500/20",
