@@ -1,10 +1,11 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isProjectsDropdownOpen, setIsProjectsDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +19,6 @@ const Navigation = () => {
     { name: 'Home', href: '#hero' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -27,6 +27,15 @@ const Navigation = () => {
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: 'smooth' });
     setIsMobileMenuOpen(false);
+  };
+
+  const handleProjectsClick = (type: 'main' | 'all') => {
+    if (type === 'main') {
+      scrollToSection('#projects');
+    } else {
+      window.location.href = '/projects';
+    }
+    setIsProjectsDropdownOpen(false);
   };
 
   return (
@@ -53,6 +62,34 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
+              
+              {/* Projects Dropdown */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsProjectsDropdownOpen(!isProjectsDropdownOpen)}
+                  className="text-gray-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1"
+                >
+                  Projects
+                  <ChevronDown size={16} className={`transition-transform duration-200 ${isProjectsDropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isProjectsDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-gray-800/95 backdrop-blur-md border border-cyan-500/30 rounded-lg shadow-lg">
+                    <button
+                      onClick={() => handleProjectsClick('main')}
+                      className="w-full text-left px-4 py-3 text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50 transition-colors duration-200 rounded-t-lg"
+                    >
+                      Main Projects
+                    </button>
+                    <button
+                      onClick={() => handleProjectsClick('all')}
+                      className="w-full text-left px-4 py-3 text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50 transition-colors duration-200 rounded-b-lg"
+                    >
+                      All Projects
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
@@ -80,6 +117,18 @@ const Navigation = () => {
                   {item.name}
                 </button>
               ))}
+              <button
+                onClick={() => handleProjectsClick('main')}
+                className="text-gray-300 hover:text-cyan-400 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200"
+              >
+                Main Projects
+              </button>
+              <button
+                onClick={() => handleProjectsClick('all')}
+                className="text-gray-300 hover:text-cyan-400 block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors duration-200"
+              >
+                All Projects
+              </button>
             </div>
           </div>
         )}

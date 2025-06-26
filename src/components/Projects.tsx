@@ -58,11 +58,31 @@ const Projects = () => {
             <div
               key={project.title}
               className={`bg-gradient-to-br ${project.gradient} backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-opacity-100 hover:border-cyan-500/50 transition-all duration-500 transform hover:scale-[1.02] group`}
+              style={{
+                transform: 'perspective(1000px)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'perspective(1000px) rotateY(5deg) rotateX(5deg) scale(1.02)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+              }}
             >
               <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 {/* Project Image */}
                 <div className={`relative overflow-hidden ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
-                  <div className="aspect-video bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center">
+                  <div 
+                    className="aspect-video bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500"
+                    style={{
+                      transform: 'perspective(800px)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'perspective(800px) rotateY(10deg) rotateX(5deg) scale(1.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) scale(1)';
+                    }}
+                  >
                     <div className="text-center text-gray-400">
                       <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full flex items-center justify-center">
                         <span className="text-2xl font-bold text-cyan-400">
