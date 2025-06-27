@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,6 +13,8 @@ const Navigation = () => {
   const projectsButtonRef = useRef<HTMLButtonElement | null>(null);
   const popupRef = useRef<HTMLDivElement | null>(null);
   const location = useLocation();
+
+  const navigate = useNavigate();
 
   const navItems = [
     { name: 'Home', href: '#hero', id: 'hero' },
@@ -150,7 +152,8 @@ const Navigation = () => {
                     Featured Projects
                   </button>
                   <button
-                    onClick={() => (window.location.href = '/projects')}
+                    // onClick={() => (window.location.href = '/projects')}
+                    onClick={() => navigate('/projects')}
                     className="w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50 transition-colors duration-200 rounded-b-lg"
                   >
                     All Projects
