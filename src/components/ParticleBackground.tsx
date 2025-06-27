@@ -43,7 +43,10 @@ const ParticleBackground = () => {
 
       particlesRef.current = [];
 
-      for (let i = 0; i < 150; i++) {
+      const isMobile = window.innerWidth <= 768;
+      const particleCount = isMobile ? 50 : 150;
+
+      for (let i = 0; i < particleCount; i++) {
         particlesRef.current.push({
           x: Math.random() * width,
           y: Math.random() * height,
