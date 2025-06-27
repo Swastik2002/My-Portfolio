@@ -10,22 +10,27 @@ const AllProjects = () => {
 
   const allProjects = [
     {
-      title: "BlogSafe",
-      description: "A full-stack blogging platform with real-time chat, file uploads, comment moderation, and user/admin roles.",
-      image: "/api/placeholder/600/400",
-      techStack: ["ReactJS", "Node.js", "Express.js", "Socket.IO", "MongoDB"],
-      features: ["Real-time Chat", "File Uploads", "User Authentication", "Admin Panel"],
-      github: "https://github.com/swastikgarg04",
-      demo: "#",
+      title: "TrustMed",
+      description: "Full-stack hospital care platform built to digitize prescriptions and streamline doctor-patient-medicine management on a single system.",
+      image: "/TrustMed_big.png",
+      techStack: ["ReactJS", "Node.js", "ExpressJS", "SQLite", "JWT", "Vercel", "Render"],
+      features: [
+        "Role-Based User Access (Admin, Doctor, Patient)",
+        "Upload and Digitize Prescriptions with Text Extraction",
+        "Order Medicines with a Shopping Cart System",
+        "Manage Doctors, Patients, Medicines and Orders"
+      ],
+      github: "https://github.com/Swastik2002/trustmed",
+      demo: "https://swastik-trustmed.vercel.app/",
       gradient: "from-cyan-500/20 to-blue-500/20",
       borderGradient: "from-cyan-500 to-blue-500"
     },
     {
-      title: "TrustMed",
-      description: "A health-tech platform for medicine trust verification with SQLite backend, deployed via Vercel and Railway.",
-      image: "/api/placeholder/600/400",
-      techStack: ["ReactJS", "SQLite", "Node.js", "Vercel", "Railway"],
-      features: ["Medicine Verification", "Trust Score", "Database Integration", "Cloud Deployment"],
+      title: "BlogSafe",
+      description: "A full-stack blogging platform with real-time chat, file uploads, comment moderation, and user/admin roles.",
+      image: "",
+      techStack: ["ReactJS", "Node.js", "Express.js", "Socket.IO", "MongoDB"],
+      features: ["Real-time Chat", "File Uploads", "User Authentication", "Admin Panel"],
       github: "https://github.com/swastikgarg04",
       demo: "#",
       gradient: "from-green-500/20 to-emerald-500/20",
@@ -34,7 +39,7 @@ const AllProjects = () => {
     {
       title: "Answer Verification Tool",
       description: "Built during internship, integrates Google Gemini with ReactJS to validate student answers for teachers.",
-      image: "/api/placeholder/600/400",
+      image: "",
       techStack: ["ReactJS", "Google Gemini API", "JavaScript", "AI Integration"],
       features: ["AI-Powered Validation", "Teacher Dashboard", "Automated Grading", "API Integration"],
       github: "https://github.com/swastikgarg04",
@@ -45,7 +50,7 @@ const AllProjects = () => {
     {
       title: "Weather App",
       description: "A responsive weather application with location-based forecasts and interactive maps.",
-      image: "/api/placeholder/600/400",
+      image: "",
       techStack: ["ReactJS", "Weather API", "CSS3", "JavaScript"],
       features: ["Real-time Weather", "Location Search", "5-Day Forecast", "Responsive Design"],
       github: "https://github.com/swastikgarg04",
@@ -56,7 +61,7 @@ const AllProjects = () => {
     {
       title: "Task Manager",
       description: "A productivity app for managing tasks with drag-and-drop functionality and team collaboration.",
-      image: "/api/placeholder/600/400",
+      image: "",
       techStack: ["ReactJS", "Redux", "Node.js", "MongoDB"],
       features: ["Drag & Drop", "Team Collaboration", "Due Dates", "Priority Levels"],
       github: "https://github.com/swastikgarg04",
@@ -67,7 +72,7 @@ const AllProjects = () => {
     {
       title: "E-Commerce Store",
       description: "A full-featured online store with payment integration and inventory management.",
-      image: "/api/placeholder/600/400",
+      image: "",
       techStack: ["ReactJS", "Stripe API", "Node.js", "PostgreSQL"],
       features: ["Payment Processing", "Inventory Management", "User Reviews", "Shopping Cart"],
       github: "https://github.com/swastikgarg04",
@@ -117,13 +122,23 @@ const AllProjects = () => {
                   {/* Project Image */}
                   <div className="relative overflow-hidden">
                     <div className="aspect-video bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                      <div className="text-center text-gray-400">
-                        <div className="w-24 h-24 mx-auto mb-4 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full flex items-center justify-center">
-                          <span className="text-2xl font-bold text-cyan-400">
-                            {project.title.substring(0, 2)}
-                          </span>
-                        </div>
-                        <p className="text-sm">Project Screenshot</p>
+                      <div className="relative w-full pt-[56.25%] bg-gradient-to-br from-gray-700 to-gray-800 overflow-hidden">
+                        {project.image ? (
+                          <img
+                            src={project.image}
+                            alt="Project Screenshot"
+                            className="absolute inset-0 w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-gray-400">
+                            <div className="w-24 h-24 mb-4 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full flex items-center justify-center">
+                              <span className="text-2xl font-bold text-cyan-400">
+                                {project.title?.substring(0, 2)}
+                              </span>
+                            </div>
+                            <p className="text-sm">Project Screenshot</p>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

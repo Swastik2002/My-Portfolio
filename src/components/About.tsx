@@ -13,28 +13,37 @@ const About = () => {
         </div>
         
         <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="relative">
+            <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-8 transform hover:scale-105 transition-transform duration-300">
+              <div className="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl flex items-center justify-center">
+                <div className="text-center text-gray-400">
+                  <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full flex items-center justify-center">
+                    <span className="text-4xl font-bold text-cyan-400">SG</span>
+                  </div>
+                  <p className="text-sm">Profile Photo</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
           <div className="space-y-6">
+            <h3 className="text-2xl text-cyan-300 leading relaxed">Hello! I'm Swastik Garg</h3>
+
             <p className="text-lg text-gray-300 leading-relaxed">
-              I'm a passionate Software Developer with experience in full-stack development and AI integration. 
-              I love building impactful web applications and working with cutting-edge technologies.
-            </p>
-            
-            <p className="text-lg text-gray-300 leading-relaxed">
-              My journey in software development has led me to explore various technologies, from creating 
-              responsive web interfaces to building robust backend systems. I'm constantly learning and 
-              adapting to new challenges in the ever-evolving tech landscape.
-            </p>
-            
-            <p className="text-lg text-gray-300 leading-relaxed">
-              I believe in writing clean, efficient code and creating user experiences that make a difference. 
-              Whether it's developing a complex web application or integrating AI capabilities, I approach 
-              each project with enthusiasm and attention to detail.
+              I am passionate about building impactful and detailed software solutions and working with modern web technologies. With strong problem-solving abilities, great communication skills, and a commitment to work, I strive to deliver meaningful user experiences.
             </p>
 
             <p className="text-lg text-gray-300 leading-relaxed">
-              When I'm not coding, I enjoy staying up-to-date with the latest tech trends, contributing to 
-              open-source projects, and sharing knowledge with the developer community. I'm always excited 
-              to take on new challenges and collaborate on innovative projects.
+              I am currently pursuing a Bachelor's degree in Computer Science and Engineering at JIIT, Noida (2022-2026), with a CGPA of 8.5.
+            </p>
+
+            <p className="text-lg text-gray-300 leading-relaxed">
+              My journey in software development has led me to explore various technologies. I'm constantly learning and 
+              adapting to new challenges in the ever-evolving tech field.
+            </p>
+
+            <p className="text-lg text-gray-300 leading-relaxed">
+              When I'm not coding, I enjoy exploring the latest technologies. Beyond tech, I love playing guitar, singing & listening to music.
             </p>
 
             {/* View Resume Button */}
@@ -50,18 +59,6 @@ const About = () => {
             </div>
           </div>
           
-          <div className="relative">
-            <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-8 transform hover:scale-105 transition-transform duration-300">
-              <div className="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl flex items-center justify-center">
-                <div className="text-center text-gray-400">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full flex items-center justify-center">
-                    <span className="text-4xl font-bold text-cyan-400">SG</span>
-                  </div>
-                  <p className="text-sm">Profile Photo</p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

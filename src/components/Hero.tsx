@@ -10,6 +10,11 @@ const Hero = () => {
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8">
         <div className="animate-fade-in">
+          <div className="text-2xl sm:text-2xl md:text-3xl text-gray-300 mb-6 flex items-center gap-2 justify-center">
+            <span>Hello</span>
+            <img src="/Hello.gif" alt="waving hand" style={{ width: "40px" }} />
+            <span>, I'm</span>
+          </div>
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
               Swastik Garg

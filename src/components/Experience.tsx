@@ -28,16 +28,16 @@ const Experience = () => {
                 </span>
               </div>
               <h4 className="text-xl font-semibold text-gray-300 mb-2">
-                Protiviti India Member Firm
+                Protiviti
               </h4>
               <p className="text-gray-400 mb-4 font-medium">
-                Software Development Intern
+                Web Development Intern
               </p>
               <div className="space-y-4">
                 <div>
                   <h5 className="text-lg font-semibold text-white mb-2">Project:</h5>
                   <p className="text-gray-300 mb-4">
-                    Contributed to internal tool development for automation and data validation, focusing on ReactJS and integration with backend services.
+                    Contributed to internal tool development, focusing on ReactJS and integration with backend services.
                   </p>
                 </div>
                 <div>
@@ -53,16 +53,12 @@ const Experience = () => {
                     </li>
                     <li className="flex items-start text-gray-300">
                       <div className="w-2 h-2 bg-cyan-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                      Participated in Agile sprints and daily stand-ups
-                    </li>
-                    <li className="flex items-start text-gray-300">
-                      <div className="w-2 h-2 bg-cyan-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
                       Gained practical experience in enterprise-grade application development
                     </li>
                   </ul>
                 </div>
                 <div className="flex flex-wrap gap-2 pt-4">
-                  {["ReactJS", "TailwindCSS", "REST API", "Agile", "Enterprise Software"].map((tech) => (
+                  {["ReactJS", "TailwindCSS", "REST API"].map((tech) => (
                     <span
                       key={tech}
                       className="px-3 py-1 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 rounded-full text-sm text-cyan-400"

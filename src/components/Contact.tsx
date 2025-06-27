@@ -64,7 +64,7 @@ const Contact = () => {
         </div>
 
         {/* Social Media Links */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
           {socialLinks.map((social) => (
             <a
               key={social.name}

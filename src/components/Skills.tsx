@@ -1,17 +1,43 @@
+import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaGitAlt, FaGithub, FaPython, FaJava } from 'react-icons/fa';
+import { SiCplusplus, SiTailwindcss, SiMongodb, SiPostgresql, SiSqlite, SiTypescript, SiJavascript, SiVercel, SiRender, SiRailway, SiExpress, SiMysql } from 'react-icons/si';
 
 const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      skills: ["C++", "Java", "JavaScript", "TypeScript", "Python"]
+      skills: [
+        { name: "C++", icon: <SiCplusplus /> },
+        { name: "Python", icon: <FaPython /> },
+        { name: "Java", icon: <FaJava /> },
+        { name: "JavaScript", icon: <SiJavascript /> },
+        { name: "TypeScript", icon: <SiTypescript /> }
+      ]
     },
     {
       title: "Technologies",
-      skills: ["ReactJS", "Node.js", "Express.js", "Socket.IO", "HTML5", "CSS3", "TailwindCSS", "REST APIs"]
+      skills: [
+        { name: "ReactJS", icon: <FaReact /> },
+        { name: "NodeJS", icon: <FaNodeJs /> },
+        { name: "ExpressJS", icon: <SiExpress /> },
+        { name: "HTML5", icon: <FaHtml5 /> },
+        { name: "CSS3", icon: <FaCss3Alt /> },
+        { name: "TailwindCSS", icon: <SiTailwindcss /> },
+        { name: "REST APIs", icon: <SiJavascript /> }
+      ]
     },
     {
       title: "Database & Tools",
-      skills: ["SQLite", "PostgreSQL", "MongoDB", "Git", "GitHub", "Vercel", "Railway"]
+      skills: [
+        { name: "MySQL", icon: <SiMysql /> },
+        { name: "SQLite", icon: <SiSqlite /> },
+        { name: "PostgreSQL", icon: <SiPostgresql /> },
+        { name: "MongoDB", icon: <SiMongodb /> },
+        { name: "Git", icon: <FaGitAlt /> },
+        { name: "GitHub", icon: <FaGithub /> },
+        { name: "Vercel", icon: <SiVercel /> },
+        { name: "Render", icon: <SiRender /> },
+        { name: "Railway", icon: <SiRailway /> }
+      ]
     }
   ];
 
@@ -40,15 +66,12 @@ const Skills = () => {
               <div className="flex flex-wrap gap-3 justify-center">
                 {category.skills.map((skill, skillIndex) => (
                   <div
-                    key={skill}
-                    className="px-4 py-2 bg-gradient-to-r from-gray-700/50 to-gray-800/50 backdrop-blur-sm border border-gray-600/50 rounded-lg text-gray-300 hover:border-cyan-500/50 hover:text-cyan-400 transition-all duration-300 transform hover:scale-110 cursor-default"
-                    style={{ 
-                      animationDelay: `${categoryIndex * 100 + skillIndex * 50}ms` 
-                    }}
+                    key={skill.name}
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gray-700/50 to-gray-800/50 backdrop-blur-sm border border-gray-600/50 rounded-lg text-gray-300 hover:border-cyan-500/50 hover:text-cyan-400 transition-all duration-300 transform hover:scale-110 cursor-default"
+                    style={{ animationDelay: `${categoryIndex * 100 + skillIndex * 50}ms` }}
                   >
-                    <span className="font-medium text-sm">
-                      {skill}
-                    </span>
+                    <span className="text-lg">{skill.icon}</span>
+                    <span className="font-medium text-sm">{skill.name}</span>
                   </div>
                 ))}
               </div>

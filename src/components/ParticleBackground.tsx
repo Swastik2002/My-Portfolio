@@ -49,7 +49,7 @@ const ParticleBackground = () => {
           y: Math.random() * height,
           vx: (Math.random() - 0.5) * 0.5,
           vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 2.5 + 1.5,
+          size: Math.random() * 3 + 1.5,
           opacity: Math.random() * 0.5 + 0.3,
         });
       }
