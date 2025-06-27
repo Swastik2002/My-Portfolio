@@ -1,8 +1,8 @@
 import { Github, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 const Projects = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const projects = [
     {
       title: "TrustMed",
@@ -147,21 +147,21 @@ const Projects = () => {
         </div>
         {/* View All Projects Button */}
         <div className="mt-12 text-center">
-          {/* <a
+          <a
             href="/projects"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-white text-lg font-semibold hover:opacity-90 transition-all duration-300"
           >
             View All Projects
             <ArrowRight size={20} />
-          </a> */}
-          <button
+          </a>
+          {/* <button
             // onClick={() => (window.location.href = '/projects')}
             onClick={() => navigate('/projects')}
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-white text-lg font-semibold hover:opacity-90 transition-all duration-300"
           >
             View All Projects
             <ArrowRight size={20} />
-          </button>
+          </button> */}
         </div>
       </div>
     </section>
