@@ -17,10 +17,7 @@ const About = () => {
             <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-8 transform hover:scale-105 transition-transform duration-300">
               <div className="aspect-square bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl flex items-center justify-center">
                 <div className="text-center text-gray-400">
-                  <div className="w-32 h-32 mx-auto mb-4 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full flex items-center justify-center">
-                    <span className="text-4xl font-bold text-cyan-400">SG</span>
-                  </div>
-                  <p className="text-sm">Profile Photo</p>
+                  <img src="/Profile_Picture.jpg" alt="Profile Picture"/>
                 </div>
               </div>
             </div>
