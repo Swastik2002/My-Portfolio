@@ -2,8 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-
-const repoName = 'My-Portfolio';
+import { ghPages } from "vite-plugin-gh-pages";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -11,9 +10,10 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: `/${repoName}/`,
+  base: "/My-Portfolio/",
   plugins: [
     react(),
+    ghPages(),
     mode === 'development' &&
     componentTagger(),
   ].filter(Boolean),
