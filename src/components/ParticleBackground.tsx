@@ -21,7 +21,7 @@ const ParticleBackground = () => {
     if (!ctx) return;
 
     const resizeCanvas = () => {
-      const height = document.documentElement.scrollHeight;
+      const height = window.innerHeight; 
       const width = window.innerWidth;
 
       canvas.width = width;
@@ -43,7 +43,7 @@ const ParticleBackground = () => {
 
       particlesRef.current = [];
 
-      for (let i = 0; i < 400; i++) {
+      for (let i = 0; i < 150; i++) {
         particlesRef.current.push({
           x: Math.random() * width,
           y: Math.random() * height,
