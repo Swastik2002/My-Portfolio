@@ -31,16 +31,15 @@ const About = () => {
             </p>
 
             <p className="text-lg text-gray-300 leading-relaxed">
-              I am currently pursuing a Bachelor's degree in Computer Science and Engineering at JIIT, Noida (2022-2026), with a CGPA of 8.5.
+              I am currently pursuing a Bachelor's degree in Computer Science and Engineering at <a href="https://www.jiit.ac.in/" target="_blank" className="test-lg text-cyan-300 leading-relaxed">JIIT, Noida (2022-2026)</a>, with a CGPA of 8.5.
             </p>
 
             <p className="text-lg text-gray-300 leading-relaxed">
-              My journey in software development has led me to explore various technologies. I'm constantly learning and 
-              adapting to new challenges in the ever-evolving tech field.
+              I am also pursuing a Bachelor's degree from <a href="https://www.iitm.ac.in/" target="_blank" className="test-lg text-cyan-300 leading-relaxed">IIT, Madras</a> in Data Science and Applications.
             </p>
 
             <p className="text-lg text-gray-300 leading-relaxed">
-              When I'm not coding, I enjoy exploring the latest technologies. Beyond tech, I love playing guitar, singing & listening to music.
+              When I'm not coding, I enjoy exploring the latest technologies. Beyond tech, I love playing flute, guitar, singing & listening to music.
             </p>
 
             {/* View Resume Button */}

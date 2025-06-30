@@ -1,5 +1,5 @@
 import { Github, ArrowRight } from 'lucide-react';
-// import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 
 const Projects = () => {
   // const navigate = useNavigate();
@@ -44,6 +44,33 @@ const Projects = () => {
     }
   ];
 
+  // const tileRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  // const handleMouseMove = (e: React.MouseEvent, index: number) => {
+  //   const tile = tileRefs.current[index];
+  //   if (!tile) return;
+
+  //   const rect = tile.getBoundingClientRect();
+  //   const x = e.clientX - rect.left;
+  //   const y = e.clientY - rect.top;
+
+  //   const centerX = rect.width / 2;
+  //   const centerY = rect.height / 2;
+
+  //   const rotateX = -(y - centerY) / 14;
+  //   const rotateY = (x - centerX) / 14;
+
+  //   // Keep the Tailwind scale and apply tilt only
+  //   tile.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+  // };
+
+  // const resetTilt = (index: number) => {
+  //   const tile = tileRefs.current[index];
+  //   if (!tile) return;
+
+  //   tile.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+  // };
+
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/30">
       <div className="max-w-7xl mx-auto">
@@ -66,6 +93,14 @@ const Projects = () => {
               key={project.title}
               className={`bg-gradient-to-br ${project.gradient} backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-opacity-100 hover:border-cyan-500/50 transition-all duration-500 transform hover:scale-[1.02] group flex flex-col`}
             >
+            {/* <div
+              key={project.title}
+              ref={(el) => (tileRefs.current[index] = el)}
+              onMouseMove={(e) => handleMouseMove(e, index)}
+              onMouseLeave={() => resetTilt(index)}
+              className={`bg-gradient-to-br ${project.gradient} backdrop-blur-sm border border-gray-700/50 rounded-2xl overflow-hidden hover:border-opacity-100 hover:border-cyan-500/50 transition-all duration-180 transform hover:scale-[1.02] group flex flex-col shadow-lg`}
+              style={{ transformStyle: 'preserve-3d', willChange: 'transform' }}
+            > */}
               {/* Image Section */}
               <div className="aspect-video relative overflow-hidden bg-gradient-to-br from-gray-700 to-gray-800">
                 <div className="absolute inset-0 flex items-center justify-center text-center text-gray-400 transition-transform duration-500 group-hover:scale-110">
@@ -154,14 +189,6 @@ const Projects = () => {
             View All Projects
             <ArrowRight size={20} />
           </a>
-          {/* <button
-            // onClick={() => (window.location.href = '/projects')}
-            onClick={() => navigate('/projects')}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-white text-lg font-semibold hover:opacity-90 transition-all duration-300"
-          >
-            View All Projects
-            <ArrowRight size={20} />
-          </button> */}
         </div>
       </div>
     </section>
