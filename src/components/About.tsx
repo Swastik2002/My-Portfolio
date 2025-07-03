@@ -39,7 +39,7 @@ const About = () => {
             </p>
 
             <p className="text-lg text-gray-300 leading-relaxed">
-              When I'm not coding, I enjoy exploring the latest technologies. Beyond tech, I love playing flute, guitar, singing & listening to music.
+              When I'm not coding, I enjoy exploring the latest technologies. Beyond tech, I love playing flute, guitar, singing & listening to music and also love making musical covers.
             </p>
 
             {/* View Resume Button */}
